@@ -19,8 +19,15 @@ public class GoogleRecaptcha {
 
 	private static final String RECAPTCHA_SERVICE_URL = "https://www.google.com/recaptcha/api/siteverify";
 	private static final String SECRET_KEY = "ENTER_HERE_YOUR_SECRET_KEY";
-
-	public static boolean verify(String clientRecaptchaResponse) throws IOException, ParseException {
+	
+	/**
+	 * checks if a user is valid
+	 * @param clientRecaptchaResponse
+	 * @return true if human, false if bot
+	 * @throws IOException
+	 * @throws ParseException
+	 */
+	public static boolean isValid(String clientRecaptchaResponse) throws IOException, ParseException {
 		if (clientRecaptchaResponse == null || "".equals(clientRecaptchaResponse)) {
 			return false;
 		}
